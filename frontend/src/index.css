@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  background: #04070c;
+  color: #e4ecf3;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: #cfe3ee; color: #04070c; }
+
+/* thin, wide-tracked headings */
+h1, h2 { font-weight: 200; letter-spacing: 0.14em; text-transform: uppercase; }
+
+/* minimal hairline panel */
+.card {
+  @apply border bg-panel/90 p-5;
+  border-color: rgba(238, 244, 248, 0.12);
+  border-radius: 3px;
+}
+
+.eyebrow, .hud-label {
+  font-size: 10px; letter-spacing: 0.42em; text-transform: uppercase;
+  color: #728795; font-weight: 400;
+}
+
+/* edolus-style outlined button */
+.btn {
+  @apply inline-flex items-center gap-2 px-6 py-3 text-[11px] font-normal;
+  letter-spacing: 0.32em; text-indent: 0.32em; text-transform: uppercase;
+  color: #eef4f8; background: transparent;
+  border: 1px solid rgba(238, 244, 248, 0.35); border-radius: 2px;
+  transition: all 0.3s ease; cursor: pointer; white-space: nowrap;
+}
+.btn:hover { background: #eef4f8; color: #04070c; border-color: #eef4f8; }
+.btn-primary { background: #eef4f8; color: #04070c; border-color: #eef4f8; }
+.btn-primary:hover { background: transparent; color: #eef4f8; }
+.btn-compact { @apply px-4 py-2; }
+
+/* small ghost button for cards + dialogs */
+.btn-min {
+  @apply border px-3 py-1.5 text-[10px] font-normal uppercase;
+  letter-spacing: 0.25em; border-color: rgba(238, 244, 248, 0.25);
+  border-radius: 2px; color: #cfe3ee; transition: all 0.25s ease; white-space: nowrap;
+}
+.btn-min:hover { background: #eef4f8; color: #04070c; border-color: #eef4f8; }
+
+/* legacy accent helpers now map to quiet ice */
+.text-acc { color: #cfe3ee; }
+.bg-acc-soft { background: rgba(207, 227, 238, 0.08); }
+.border-acc { border-color: rgba(207, 227, 238, 0.4) !important; }
+.glow-acc { box-shadow: none; }
+
+.tag {
+  @apply inline-block px-2 py-0.5 text-[10px] font-normal;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  border: 1px solid rgba(238, 244, 248, 0.22); border-radius: 2px; color: #9fb4c2;
+}
+
+.skel { @apply animate-pulse bg-white/5; border-radius: 3px; }
+
+.live-dot {
+  @apply inline-block h-1.5 w-1.5 rounded-full;
+  background: #7fd4e8; box-shadow: 0 0 8px rgba(127, 212, 232, 0.8);
+  animation: softblink 2.4s ease-in-out infinite;
+}
+@keyframes softblink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+input[type='text'], input:not([type]), input[type='search'], select { color-scheme: dark; }
+.hud-input {
+  @apply bg-transparent px-3 py-2 text-[12px] font-light;
+  letter-spacing: 0.14em; border: 1px solid rgba(238, 244, 248, 0.2);
+  border-radius: 2px; outline: none; color: #e4ecf3; transition: border-color 0.25s ease;
+}
+.hud-input::placeholder { color: #4d5f71; letter-spacing: 0.22em; }
+.hud-input:focus { border-color: rgba(207, 227, 238, 0.65); }
+select.hud-input option { background: #0a0f16; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #04070c; }
+::-webkit-scrollbar-thumb { background: #1b2635; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #2c3d52; }
+
+/* map frame + popups */
+.leaflet-container { background: #04070c; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; }
+.map-frame { border: 1px solid rgba(238, 244, 248, 0.14); border-radius: 4px; overflow: hidden; }
+.leaflet-popup-content-wrapper { background: #0a0f16; color: #e4ecf3; border: 1px solid rgba(238,244,248,0.2); border-radius: 3px; box-shadow: none; }
+.leaflet-popup-tip { background: #0a0f16; border: 1px solid rgba(238,244,248,0.2); }
+.leaflet-popup-content { font-size: 12px; letter-spacing: 0.06em; }
+.leaflet-popup-content a { color: #cfe3ee; }
+.leaflet-bar a { background: #0a0f16 !important; color: #9fb4c2 !important; border-color: rgba(238,244,248,0.12) !important; }
+
+/* cinematic entry CTA (landing) */
+.landing-cta {
+  display: inline-block; padding: 14px 54px;
+  border: 1px solid rgba(238, 244, 248, 0.55); border-radius: 2px;
+  font-size: 12px; letter-spacing: 0.42em; text-indent: 0.42em;
+  color: #eef4f8; background: rgba(255, 255, 255, 0.02);
+  transition: all 0.35s ease; cursor: pointer;
+}
+.landing-cta:hover {
+  background: #eef4f8; color: #04070c;
+  box-shadow: 0 0 34px rgba(190, 230, 245, 0.35);
+}

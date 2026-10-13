@@ -1,0 +1,13 @@
+# dependencies + build output
+node_modules/
+frontend/dist/
+
+# secrets (examples are committed, real ones never)
+.env
+*.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

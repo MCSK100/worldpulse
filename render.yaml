@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: world-pulse-api
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: FRONTEND_ORIGIN
+        value: https://your-vercel-app.vercel.app
+      - key: NEWS_REFRESH_CRON
+        value: "*/10 * * * *"
